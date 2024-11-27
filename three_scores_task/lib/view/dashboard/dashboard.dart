@@ -4,7 +4,9 @@
 
 
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:three_scores_task/core/resources/colors.dart';
+import 'package:three_scores_task/core/resources/icons.dart';
 import 'package:three_scores_task/view/match_overview/match_overview.dart';
 
 class DashboardScreen extends StatefulWidget {
@@ -34,7 +36,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
   void itemTapped(int index) {
     setState(() {
       selectedIndex = index;
-      currentPage = pages[index];
+     // currentPage = pages[index];
       FocusScope.of(context).unfocus();
     });
   }
@@ -45,25 +47,44 @@ class _DashboardScreenState extends State<DashboardScreen> {
       body: currentPage,
       bottomNavigationBar: BottomNavigationBar(
           key: navigationBarKey,
-          items: const  <BottomNavigationBarItem>  [
-            BottomNavigationBarItem(icon: Icon(Icons.home, size: 20,),
-                label: "Home", backgroundColor: AppColors.black),
-            BottomNavigationBarItem(icon: Icon(Icons.account_balance_wallet_outlined, size: 20,),
-                label: "Matches"),
-            BottomNavigationBarItem(icon: Icon(Icons.bookmark_border, size: 20,),
-                label: "Fantasy"),
-            BottomNavigationBarItem(icon: Icon(Icons.youtube_searched_for_outlined, size: 20,),
-              label: "Shop",),
-            BottomNavigationBarItem(icon: Icon(Icons.more_horiz, size: 20,),
+          items:  <BottomNavigationBarItem>  [
+            BottomNavigationBarItem(icon: _bottomNavIcons(icon: SvgIcons.homeIcon,),
+                label: "Home", activeIcon: _bottomNavIcons(icon:SvgIcons.homeIcon ,color: AppColors.primary,)),
+            BottomNavigationBarItem(icon: _bottomNavIcons(icon:SvgIcons.matchesIcon, color: AppColors.black,),
+                label: "Matches", activeIcon:  _bottomNavIcons(icon:SvgIcons.matchesIcon, color: AppColors.primary,)),
+            BottomNavigationBarItem(icon: _bottomNavIcons(icon: SvgIcons.fantasyIcon,),
+                label: "Fantasy", activeIcon:  _bottomNavIcons(icon: SvgIcons.fantasyIcon, color: AppColors.primary)),
+            BottomNavigationBarItem(icon: _bottomNavIcons(icon: SvgIcons.shopIcon),
+              label: "Shop", activeIcon: _bottomNavIcons(icon: SvgIcons.shopIcon, color: AppColors.primary)),
+            BottomNavigationBarItem(icon: Image.asset(PngIcons.profileIcon, height: 23, width: 23,),
               label: "My Profile",),
           ],
           currentIndex: selectedIndex,
           onTap: itemTapped,
           type: BottomNavigationBarType.fixed,
-          fixedColor: AppColors.black,
           elevation: 4,
+          selectedItemColor: AppColors.primary,
+          unselectedItemColor: AppColors.black,
+          unselectedLabelStyle: const TextStyle(
+             color: AppColors.black,
+            fontSize: 11,
+            fontWeight: FontWeight.w500
+          ),
+          selectedLabelStyle: const TextStyle(
+            color: AppColors.primary,
+            fontSize: 11,
+            fontWeight: FontWeight.w500
+          ),
           backgroundColor: Colors.grey[100],
       )
+    );
+  }
+  Widget _bottomNavIcons({required String icon, Color? color}){
+    return SvgPicture.asset(
+      icon,
+      height: 23,
+      width: 23,
+      color: color
     );
   }
 }

@@ -18,4 +18,8 @@ class PngIcons {
     static const String searchIcon = "assets/icons/png/search_icon.png";
     static const String seriaIcon = "assets/icons/png/seria_icon.png";
     static const String threeScoreIcon = "assets/icons/png/three_score_icon.png";
+    static const String pastMatchIcon = "assets/icons/png/past_match_icon.png";
+    static const String barcelonaIcon = "assets/icons/png/barcelona_icon.png";
+    static const String gironaIcon = "assets/icons/png/girona_icon.png";
+    static const String profileIcon = "assets/icons/png/profile_icon.png";
 }
