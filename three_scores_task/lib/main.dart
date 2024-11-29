@@ -23,6 +23,8 @@ class MyApp extends StatelessWidget {
             theme: ThemeData(
             textTheme: GoogleFonts.outfitTextTheme(textTheme).copyWith(
             bodyMedium: GoogleFonts.outfit(textStyle: textTheme.bodyMedium),
+            bodyLarge: GoogleFonts.outfit(textStyle: textTheme.bodyLarge),
+            bodySmall: GoogleFonts.outfit(textStyle: textTheme.bodySmall),
             ),
               colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
               useMaterial3: true,

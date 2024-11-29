@@ -21,4 +21,13 @@ class AppStrings{
   static const String gameWeek5 = 'Game Week 15';
   static const String barcelona = 'Barcelona';
   static const String girona = 'Girona';
+  static const String matchDetails = 'Match Details';
+  static const String penalty = 'Penalty';
+  static const String watchHighlight = 'Watch Highight';
+  static const String playerOfMatch = 'Player of the match';
+  static const String matchMomentum = 'Live Match Momentum';
+  static const String ballPossession = 'Ball Possesion';
+  static const String matchStandings = 'Live Match Standings';
+  static const String gameinfo = 'Game Information';
+  static const String matchCurrentStat = 'Match Current Stat';
 }

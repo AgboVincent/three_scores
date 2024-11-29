@@ -25,81 +25,90 @@ class PastMatchesWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      width: context.width(),
-      height: 130,
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(15),
-        color: AppColors.white,
-          boxShadow: const [
-            BoxShadow(
-              color: AppColors.white,
-              spreadRadius: 1,
-              blurRadius: 10,
-              offset: Offset(0, 1),
-            )
-          ]
+    return TextButton(
+      onPressed: (){
+         Navigator.pushNamed(context, '/match-details', );
+      },
+      style: TextButton.styleFrom(
+        padding: EdgeInsets.zero,
+        minimumSize: Size.zero, 
+        tapTargetSize: MaterialTapTargetSize.shrinkWrap,
       ),
-      child: Column(
-        children: [
-          Container(
-            padding: const EdgeInsets.all(15),
-            decoration: const BoxDecoration(
-              color: AppColors.primary,
-              borderRadius: BorderRadius.only(
-                topLeft: Radius.circular(20),
-                topRight: Radius.circular(20)
+      child: Container(
+        width: context.width(),
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(15),
+          color: AppColors.white,
+            boxShadow: const [
+              BoxShadow(
+                color: AppColors.white,
+                spreadRadius: 1,
+                blurRadius: 10,
+                offset: Offset(0, 1),
               )
-            ),
-            child: Row(
-              children: [
-                Container(
-                  padding: const EdgeInsets.only(left: 10),
-                  height: 24,
-                  width: 24,
-                  decoration: const BoxDecoration(
-                    image: DecorationImage(image: AssetImage(PngIcons.pastMatchIcon)
-                    )
-                  ),
-                ),
-                const Gap(10),
-                const Text(
-                  AppStrings.laliga,
-                  style: TextStyle(
-                    fontSize: 14,
-                    fontWeight: FontWeight.w500,
-                    letterSpacing: 0.1,
-                    color: AppColors.white,
-                  ),
-                ),
-                const Spacer(),
-                const Text(
-                  AppStrings.gameWeek5,
-                  style: TextStyle(
-                    fontSize: 14,
-                    fontWeight: FontWeight.w500,
-                    letterSpacing: 0.1,
-                    color: AppColors.white,
-                  ),
+            ]
+        ),
+        child: Column(
+          children: [
+            Container(
+              padding: const EdgeInsets.all(15),
+              decoration: const BoxDecoration(
+                color: AppColors.primary,
+                borderRadius: BorderRadius.only(
+                  topLeft: Radius.circular(15),
+                  topRight: Radius.circular(15)
                 )
-              ],
+              ),
+              child: Row(
+                children: [
+                  Container(
+                    padding: const EdgeInsets.only(left: 10),
+                    height: 24,
+                    width: 24,
+                    decoration: const BoxDecoration(
+                      image: DecorationImage(image: AssetImage(PngIcons.pastMatchIcon)
+                      )
+                    ),
+                  ),
+                  const Gap(10),
+                  const Text(
+                    AppStrings.laliga,
+                    style: TextStyle(
+                      fontSize: 14,
+                      fontWeight: FontWeight.w500,
+                      letterSpacing: 0.1,
+                      color: AppColors.white,
+                    ),
+                  ),
+                  const Spacer(),
+                  const Text(
+                    AppStrings.gameWeek5,
+                    style: TextStyle(
+                      fontSize: 14,
+                      fontWeight: FontWeight.w500,
+                      letterSpacing: 0.1,
+                      color: AppColors.white,
+                    ),
+                  )
+                ],
+              ),
             ),
-          ),
-          const Gap(15),
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 16.0),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                _clubWidget(clubName: AppStrings.barcelona, clubImage: PngIcons.barcelonaIcon),
-                _scoreWidget(),
-                _clubWidget(clubName: AppStrings.girona, clubImage: PngIcons.gironaIcon)
-              ],
+            const Gap(15),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 16.0),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  _clubWidget(clubName: AppStrings.barcelona, clubImage: PngIcons.barcelonaIcon),
+                  _scoreWidget(),
+                  _clubWidget(clubName: AppStrings.girona, clubImage: PngIcons.gironaIcon)
+                ],
+              ),
             ),
-          ),
-          const Gap(8),
-          const Divider(height: 1, color: AppColors.greyFour,)
-        ],
+            const Gap(8),
+            const Divider(height: 1, color: AppColors.greyFour,)
+          ],
+        ),
       ),
     );
   }

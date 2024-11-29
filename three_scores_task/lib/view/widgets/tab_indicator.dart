@@ -12,6 +12,7 @@ import 'package:gap/gap.dart';
 import 'package:three_scores_task/core/extension/media.dart';
 import 'package:three_scores_task/core/resources/colors.dart';
 import 'package:three_scores_task/core/resources/strings.dart';
+import 'package:three_scores_task/view/match_details/details_overview.dart';
 import 'package:three_scores_task/view/match_overview/past_matches.dart';
 import '../../core/resources/images.dart';
 
@@ -57,13 +58,14 @@ class TabsIndicator extends StatelessWidget {
                   ),
                 ),
                 const Gap(15),
-                Container(
-                  padding: const EdgeInsets.all(16),
-                  height: 200,
-                  child: Padding(
-                    padding: const EdgeInsets.only(bottom: 0.0),
-                    child: TabBarView(
-                        children: tabsItems.map((element) => element).toList()
+                Expanded(
+                  child: Container(
+                    padding: const EdgeInsets.all(16),
+                    child: Padding(
+                      padding: const EdgeInsets.only(bottom: 0.0),
+                      child: TabBarView(
+                          children: tabsItems.map((element) => element).toList()
+                      ),
                     ),
                   ),
                 ),
@@ -77,5 +79,5 @@ class TabsIndicator extends StatelessWidget {
 List<String> overviewTaps = [AppStrings.liveMatches, AppStrings.newMatches, AppStrings.postMatches];
 List<String> detailsTabs = [AppStrings.overview, AppStrings.lineUp, AppStrings.statistices, AppStrings.matches];
 
-List<Widget> overViewTabItems = [Container(height: 250, width: 10, color: AppColors.black,), Container(), const PastMatchesWidget()];
-List<Widget> detailsTabItems = [Container(), Container(), Container(), Container()];
+List<Widget> overViewTabItems = [Container(height: 250, width: 10, color: AppColors.white,), Container(), const PastMatchesWidget()];
+List<Widget> detailsTabItems = [const MatchDetailsOverview(), Container(), Container(), Container()];
