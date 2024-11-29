@@ -43,6 +43,7 @@ dependencies:
   fl_chart: ^0.69.2
   sizer: ^3.0.4
   gap: ^3.0.1
+  youtube_player_flutter: ^9.1.1
 
 dev_dependencies:
   flutter_test:
@@ -72,6 +73,12 @@ flutter:
     - assets/icons/png/
     - assets/images/
     - fonts/
+    - assets/json/best_player.json
+    - assets/json/incidents.json
+    - assets/json/match_stats.json
+    - assets/json/momentum.json
+    - assets/json/match.json
+    - assets/json/video_highlights.json
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/to/resolution-aware-images
