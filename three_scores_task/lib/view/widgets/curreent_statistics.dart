@@ -133,9 +133,13 @@ List<MatchEvents> toFullTime = [
 ];
 
 List<MatchEvents> toHalfTime = [
-  MatchEvents(playerName:'Y. Couto', playerImage: PngIcons.garcia , actionIcon: PngIcons.goalScore, time: '118', isHomeTeam: false),
-  MatchEvents(playerName:'j. Cancelo', playerImage: PngIcons.cancelo , actionIcon: PngIcons.redYellowCard, time: '115', action: 'Foul', isHomeTeam: true),
-  MatchEvents(playerName:'Y. Couto', playerImage: PngIcons.garcia , actionIcon: PngIcons.varIcon, time: '105', action: 'Goal Canceled', isHomeTeam: false),
+  MatchEvents(playerName:'L. Yamal', playerImage: PngIcons.yamal , actionIcon: PngIcons.goalMissed, time: '33', action: 'Pen Missed', isHomeTeam: true),
+  MatchEvents(playerName:'Y. Couto', playerImage: PngIcons.garcia , actionIcon: PngIcons.goalScore, time: '30', action: 'Pen Scored', isHomeTeam: false),
+  MatchEvents(playerName:'J. Cancelo', playerImage: PngIcons.cancelo , actionIcon: PngIcons.redYellowCard, time: '27', isHomeTeam: true, action: 'Foul'),
+  MatchEvents(playerName:'Y. Couto', playerImage: PngIcons.garcia , actionIcon: PngIcons.goalScore, time: '25', isHomeTeam: false, action: 'Pen Scored'),
+  MatchEvents(playerName:'Y. Couto', playerImage: PngIcons.garcia , actionIcon: PngIcons.yellowCard, time: '15', isHomeTeam: false, action: 'Time Wasting'),
+  MatchEvents(playerName:'j. Cancelo', playerImage: PngIcons.cancelo , actionIcon: PngIcons.varIcon, time: '11', action: 'Penalty Awarded', isHomeTeam: true),
+  MatchEvents(playerName:'L. Yamal', playerImage: PngIcons.yamal , actionIcon: PngIcons.redCard, time: '5', action: 'Foul', isHomeTeam: true),
 ];
 
 class CurrentStatistics extends StatelessWidget {
@@ -439,19 +443,20 @@ class CurrentStatistics extends StatelessWidget {
             ),
           ),
           ListView.builder(
-          itemCount: 5,
+          itemCount: toHalfTime.length,
           shrinkWrap: true,
           physics: const NeverScrollableScrollPhysics(),
           itemBuilder: (context, index) {
-            final homeTaker = penaltyTakersHome[index];
-            final awayTaker = penaltyTakersAway[index];
+            final taker = toHalfTime[index];
             return Column(
               children: [
                 Padding(
                   padding: const EdgeInsets.all(12.0),
                   child: Row(
                     children: [
-                      Expanded(child: _homePenaltyTaker(name: homeTaker.playerName, image: homeTaker.playerImage, actionIcon: homeTaker.actionIcon)),
+                      taker.isHomeTeam == true ?
+                      Expanded(child: _homePenaltyTaker(name: taker.playerName, image: taker.playerImage, actionIcon: taker.actionIcon, action: taker.action))
+                      : const Expanded(child: SizedBox()),
                         const Gap(25),
                         Center(
                           child: Column(
@@ -475,7 +480,7 @@ class CurrentStatistics extends StatelessWidget {
                               ),
                               child: Center(
                                 child: Text(
-                                  homeTaker.time,
+                                  taker.time,
                                   style: const TextStyle(
                                     color: AppColors.white,
                                     fontSize: 11,
@@ -488,7 +493,9 @@ class CurrentStatistics extends StatelessWidget {
                           ),
                         ),
                         const Gap(25),
-                        Expanded(child: _awayPenaltyTaker(name: awayTaker.playerName, image: awayTaker.playerImage, actionIcon: awayTaker.actionIcon))
+                        taker.isHomeTeam == false ?
+                        Expanded(child: _awayPenaltyTaker(name: taker.playerName, image: taker.playerImage, actionIcon: taker.actionIcon, action: taker.action))
+                        : const Expanded(child: SizedBox())
                     ],
                   ),
                 ),

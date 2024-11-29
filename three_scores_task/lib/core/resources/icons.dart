@@ -41,4 +41,5 @@ class PngIcons {
     static const String timerIcon = "assets/icons/png/timer_icon.png";
     static const String varIcon = "assets/icons/png/var_icon.png";
     static const String substitutionIcon = "assets/icons/png/substitution_icon.png";
+    static const String yamal = "assets/icons/png/yamal.png";
 }
