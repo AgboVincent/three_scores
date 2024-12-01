@@ -13,7 +13,7 @@ class AppStrings{
   static const String ligue1 = 'Ligue 1';
   static const String liveMatches = 'Live Matches';
   static const String newMatches = 'New Matches';
-  static const String postMatches = 'Post Matches';
+  static const String postMatches = 'Past Matches';
   static const String overview = 'Overview';
   static const String lineUp = 'Line-up';
   static const String statistices = 'Statistics';

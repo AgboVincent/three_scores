@@ -167,7 +167,6 @@ class CurrentStatistics extends StatelessWidget {
         ),
         Container(
           padding: const EdgeInsets.all(4),
-          width: 90,
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(20),
             color: AppColors.greyFour

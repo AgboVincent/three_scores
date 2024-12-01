@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:get_it/get_it.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:sizer/sizer.dart';
 import 'package:three_scores_task/core/routes/routes.dart';
 import 'package:three_scores_task/view/dashboard/dashboard.dart';
 
+
+GetIt getIt = GetIt.instance;
 void main() {
   runApp(const MyApp());
 }

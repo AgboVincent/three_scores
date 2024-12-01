@@ -51,7 +51,7 @@ class TabsIndicator extends StatelessWidget {
                         item,
                         style: const TextStyle(
                           fontWeight: FontWeight.w400, 
-                          fontSize: 16
+                          fontSize: 14
                           ),
                       ),
                     ),).toList()
